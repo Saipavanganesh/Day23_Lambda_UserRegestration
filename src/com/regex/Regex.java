@@ -14,6 +14,10 @@ public class Regex {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter Mobile Number");
+        String mobileNumber = sc.nextLine();
+        boolean mobileNumberPattern = Pattern.matches("^(91)[\\s][7-9]{1}[0-9]{9}$", mobileNumber);
 
         System.out.println("Enter first name");
         String firstName = sc.next();
@@ -30,5 +34,7 @@ public class Regex {
         checkPattern(firstName, firstNamePattern);
         checkPattern(lastName, lastNamePattern);
         checkPattern(email, emailPattern);
+        checkPattern(mobileNumber, mobileNumberPattern);
+
     }
 }
