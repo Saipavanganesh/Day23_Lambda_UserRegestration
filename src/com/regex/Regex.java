@@ -14,7 +14,7 @@ public class Regex {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.println("Enter Mobile Number");
         String mobileNumber = sc.nextLine();
         boolean mobileNumberPattern = Pattern.matches("^(91)[\\s][7-9]{1}[0-9]{9}$", mobileNumber);
@@ -31,11 +31,9 @@ public class Regex {
         String email = sc.next();
         boolean emailPattern = Pattern.matches("^[A-Za-z0-9]+[.]?[A-Za-z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+[.]?[a-zA-Z]{2}$", email);
 
-
-
         System.out.println("Enter Password");
         String password = sc.next();
-        boolean passwordPattern = Pattern.matches("^[A-Za-z0-9(@#$%&*_+=)]{8,}$", password);
+        boolean passwordPattern = Pattern.matches("^(?=.*[A-Z])[A-Za-z0-9(@#$%&*_+=)]{8,}$", password);
 
         checkPattern(firstName, firstNamePattern);
         checkPattern(lastName, lastNamePattern);
