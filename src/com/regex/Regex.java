@@ -33,7 +33,7 @@ public class Regex {
 
         System.out.println("Enter Password");
         String password = sc.next();
-        boolean passwordPattern = Pattern.matches("^(?=.*[A-Z])[A-Za-z0-9(@#$%&*_+=)]{8,}$", password);
+        boolean passwordPattern = Pattern.matches("^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9(@#$%&*_+=)]{8,}$", password);
 
         checkPattern(firstName, firstNamePattern);
         checkPattern(lastName, lastNamePattern);
