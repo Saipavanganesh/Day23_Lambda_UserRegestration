@@ -1,5 +1,7 @@
 package com.regex;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -12,7 +14,16 @@ public class Regex {
             System.out.println("Invalid Pattern for " + input);
         }
     }
-    public static void main(String[] args) {
+    public static void emailsFromFile() throws FileNotFoundException {
+        File file = new File("D:\\JavaProgramsBridgelabz\\Regex\\src\\com\\regex\\emails.txt");
+        Scanner fileScanner = new Scanner (file);
+        while(fileScanner.hasNextLine()){
+            String line =fileScanner.nextLine();
+            boolean emailPattern = Pattern.matches("^[A-Za-z0-9]+[.]?[A-Za-z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+[.]?[a-zA-Z]{2}$", line);
+            checkPattern(line, emailPattern);
+        }
+    }
+    public static void main(String[] args) throws FileNotFoundException{
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter Mobile Number");
@@ -40,5 +51,9 @@ public class Regex {
         checkPattern(email, emailPattern);
         checkPattern(mobileNumber, mobileNumberPattern);
         checkPattern(password, passwordPattern);
+
+        System.out.println("Checking different email patterns");
+        emailsFromFile();
+
     }
 }
