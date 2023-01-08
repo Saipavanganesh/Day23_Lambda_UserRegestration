@@ -28,13 +28,19 @@ public class Regex {
         boolean lastNamePattern = Pattern.matches("^[A-Z]{1}[a-z]{2,}$", lastName);
 
         System.out.println("Enter email");
-        String email =sc.next();
+        String email = sc.next();
         boolean emailPattern = Pattern.matches("^[A-Za-z0-9]+[.]?[A-Za-z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+[.]?[a-zA-Z]{2}$", email);
+
+
+
+        System.out.println("Enter Password");
+        String password = sc.next();
+        boolean passwordPattern = Pattern.matches("^[A-Za-z0-9(@#$%&*_+=)]{8,}$", password);
 
         checkPattern(firstName, firstNamePattern);
         checkPattern(lastName, lastNamePattern);
         checkPattern(email, emailPattern);
         checkPattern(mobileNumber, mobileNumberPattern);
-
+        checkPattern(password, passwordPattern);
     }
 }
