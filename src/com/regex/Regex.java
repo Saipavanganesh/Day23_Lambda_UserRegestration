@@ -6,54 +6,37 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Regex {
-    public static void checkPattern(String input, boolean pattern){
+    static Scanner sc = new Scanner(System.in);
+    public String checkPattern(String input, boolean pattern){
+        String disp;
         if(pattern){
-            System.out.println("Valid Pattern for " + input);
+            disp = "Valid Pattern for " + input;
         }
         else{
-            System.out.println("Invalid Pattern for " + input);
+            disp = "Invalid Pattern for " + input;
         }
+        return disp;
     }
-    public static void emailsFromFile() throws FileNotFoundException {
-        File file = new File("D:\\JavaProgramsBridgelabz\\Regex\\src\\com\\regex\\emails.txt");
-        Scanner fileScanner = new Scanner (file);
-        while(fileScanner.hasNextLine()){
-            String line =fileScanner.nextLine();
-            boolean emailPattern = Pattern.matches("^[A-Za-z0-9]+[.]?[A-Za-z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+[.]?[a-zA-Z]{2}$", line);
-            checkPattern(line, emailPattern);
-        }
-    }
-    public static void main(String[] args) throws FileNotFoundException{
-        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter Mobile Number");
-        String mobileNumber = sc.nextLine();
-        boolean mobileNumberPattern = Pattern.matches("^(91)[\\s][7-9]{1}[0-9]{9}$", mobileNumber);
-
-        System.out.println("Enter first name");
-        String firstName = sc.next();
+    public String firstName(String firstName){
         boolean firstNamePattern = Pattern.matches("^[A-Z]{1}[a-z]{2,}$", firstName);
-
-        System.out.println("Enter last name");
-        String lastName = sc.next();
-        boolean lastNamePattern = Pattern.matches("^[A-Z]{1}[a-z]{2,}$", lastName);
-
-        System.out.println("Enter email");
-        String email = sc.next();
-        boolean emailPattern = Pattern.matches("^[A-Za-z0-9]+[.]?[A-Za-z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+[.]?[a-zA-Z]{2}$", email);
-
-        System.out.println("Enter Password");
-        String password = sc.next();
-        boolean passwordPattern = Pattern.matches("^(?=.*[@#$%^&+=])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$", password);
-
-        checkPattern(firstName, firstNamePattern);
-        checkPattern(lastName, lastNamePattern);
-        checkPattern(email, emailPattern);
-        checkPattern(mobileNumber, mobileNumberPattern);
-        checkPattern(password, passwordPattern);
-
-        System.out.println("Checking different email patterns");
-        emailsFromFile();
-
+        return(checkPattern(firstName, firstNamePattern));
     }
+    public String lastName(String lastName){
+        boolean lastNamePattern = Pattern.matches("^[A-Z]{1}[a-z]{2,}$", lastName);
+        return(checkPattern(lastName, lastNamePattern));
+    }
+    public String mobileNumber(String mobileNumber){
+        boolean mobileNumberPattern = Pattern.matches("^(91[ ])?[7-9]{1}[0-9]{9}$", mobileNumber);
+        return(checkPattern(mobileNumber, mobileNumberPattern));
+    }
+    public String email(String email){
+        boolean emailPattern = Pattern.matches("^[A-Za-z0-9]+[.]?[A-Za-z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+[.]?[a-zA-Z]{2}$", email);
+        return(checkPattern(email, emailPattern));
+    }
+    public String password(String password){
+        boolean passwordPattern = Pattern.matches("^(?=.*[@#$%^&+=])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$", password);
+        return(checkPattern(password, passwordPattern));
+    }
+
 }
